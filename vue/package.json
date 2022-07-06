@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "tail": "npx tailwindcss -i ./app.css -o ./css/app.css --watch",
+    "tail": "npx tailwindcss -i ./app.css -o ./public/app.css --watch",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build"
   },

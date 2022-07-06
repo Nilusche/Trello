@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.btn{
+    @apply  hover:cursor-pointer transition rounded-sm h-7 px-2 mr-2;
+}
