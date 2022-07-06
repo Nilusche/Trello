@@ -11,10 +11,12 @@
             </div>
         </div>
         <div class="h-full flex flex-1 flex-col items-stretch">
-            <div class="mx-4  text-white font-bold text-lg mt-2">Lorem ipsum dolor sit amet.</div>
-            <div class="flex flex-1 items-start overflow-x-auto mx-2 mt-6">
-                <List/>
-                <List/>
+            <div class="mx-4  text-white font-bold text-lg mt-2">
+                <span v-if="$apollo.queries.board.loading">Loading...</span>
+                <span v-else>{{board.title}}</span>
+            </div>
+            <div class="flex flex-1 items-start overflow-x-auto mx-2 mt-6" v-if="board">
+                <List :list="list" v-for="list in board.lists" :key="list.id"/>
             </div>
         </div>
     </div>
@@ -22,10 +24,19 @@
 
 <script>
 import List from './List.vue'
-
+import { BoardsWithListsAndCards } from '@/grapqlqueries/queries'
 export default {
     components:{
         List
+    },
+    
+    apollo:{
+        board:{
+            query:BoardsWithListsAndCards,
+            variables:{
+            id:1
+            },
+        }
     }
 }
 </script>

@@ -10,6 +10,10 @@ class CardList extends Model
 {
     use HasFactory;
 
+    protected $fillable= [
+        'title',
+        'board_id',
+    ];
 
     public function cards(){
         return $this->hasMany(Card::class, 'list_id');
